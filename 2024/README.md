@@ -3,3 +3,6 @@
 This year I've decided to code in c++ because c++ is cool. 😃
 
 
+## Setup
+
+To set up the problems for the day, I just use my [fetch.sh](https://github.com/NeKroFR/AdventOfCode/blob/main/2024/fetch.sh) script and provide it the day number.
