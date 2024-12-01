@@ -8,13 +8,13 @@ else
 fi
 
 day=$(printf "%02d" $day)
-
+cookie=$(cat .env)
 
 mkdir -p ~/AdventOfCode/2024/day$day
 
 cp ~/AdventOfCode/2024/template/* ~/AdventOfCode/2024/day$day/
 # in main.cpp replace {day_number} with $day
 sed -i "s/{day_number}/$day/g" ~/AdventOfCode/2024/day$day/main.cpp
-curl -s -o ~/AdventOfCode/2024/day$day/input.txt https://adventofcode.com/2024/day/$((10#$day))/input
+curl -s -o ~/AdventOfCode/2024/day$day/input.txt https://adventofcode.com/2024/day/$((10#$day))/input -H "cookie: session=$cookie"
 
 echo "Done."
