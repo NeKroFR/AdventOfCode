@@ -3,6 +3,8 @@
 #include <sstream>
 #include <unordered_map>
 
+using namespace std;
+
 int part2(const vector<string> &input) 
 {
     vector<int> left;
