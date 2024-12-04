@@ -66,3 +66,4 @@ int part2(const std::vector<std::string> &input)
     */
     return aux(subset);
 }
+
