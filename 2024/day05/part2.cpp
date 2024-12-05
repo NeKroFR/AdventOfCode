@@ -31,5 +31,5 @@ int part2(const std::vector<std::pair<int, int>>& rules, const std::vector<std::
         if (add)
             res += update[update.size() / 2];
     }
-    return res; // too high :/
+    return res;
 }
