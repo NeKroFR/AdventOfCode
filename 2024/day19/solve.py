@@ -1,6 +1,6 @@
-from functools import lru_cache
+from functools import cache 
 
-@lru_cache(None)
+@cache
 def count(design, op):
 	if design == '':
 		return True
