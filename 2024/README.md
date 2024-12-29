@@ -1,6 +1,7 @@
 # Advent of Code 2024
 
 This year I've decided to code in c++ because c++ is cool. 😃
+I may have cheated sometimes and used python, but the majority of my solutions are written in c++.
 
 
 ## Setup
