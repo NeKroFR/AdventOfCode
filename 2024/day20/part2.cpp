@@ -20,7 +20,7 @@ struct pair_hash {
 using Point = pair<int, int>;
 using DistMap = unordered_map<Point, int, pair_hash>;
 
-DistMap BFS(const Point& start, 
+static DistMap bfs(const Point& start, 
             const vector<vector<char>>& grid, 
             bool through_walls = false,
             int max_steps = numeric_limits<int>::max()) {
@@ -84,8 +84,8 @@ int part2(const vector<string>& lines) {
     grid[start.first][start.second] = '.';
     grid[end.first][end.second] = '.';
     
-    auto start_dists = BFS(start, grid);
-    auto end_dists = BFS(end, grid);
+    auto start_dists = bfs(start, grid);
+    auto end_dists = bfs(end, grid);
     
     int normal_time = numeric_limits<int>::max();
     auto it = start_dists.find(end);
@@ -101,7 +101,7 @@ int part2(const vector<string>& lines) {
     }
     
     for (const auto& pos : common_positions) {
-        auto cheat_dists = BFS(pos, grid, true, 20);
+        auto cheat_dists = bfs(pos, grid, true, 20);
         for (const auto& [end_pos, cheat_steps] : cheat_dists) {
             if (end_dists.find(end_pos) != end_dists.end() && end_pos != pos) {
                 int saving = normal_time - (start_dists[pos] + cheat_steps + end_dists[end_pos]);

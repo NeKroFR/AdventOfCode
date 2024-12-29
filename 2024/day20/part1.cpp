@@ -20,7 +20,7 @@ struct pair_hash {
 using Point = pair<int, int>;
 using DistMap = unordered_map<Point, int, pair_hash>;
 
-DistMap bfs(const Point& start, 
+static DistMap bfs(const Point& start, 
             const vector<vector<char>>& grid, 
             bool through_walls = false,
             int max_steps = numeric_limits<int>::max()) {
