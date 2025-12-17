@@ -7,12 +7,13 @@ module top (
     output logic [31:0] count
 );
     logic [6:0] position;
+    logic [7:0] pos, d, delta, sum, new_pos;
+    
     always_ff @(posedge clk) begin
         if (rst) begin
             position <= 7'd50;  // Initial position is 50
             count    <= 32'd0;
         end else if (valid) begin
-            logic [7:0] pos, d, delta, sum, new_pos;
             pos = position;
             d   = distance; // Input distance
 

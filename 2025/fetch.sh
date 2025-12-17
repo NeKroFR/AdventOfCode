@@ -13,7 +13,7 @@ cookie=$(cat .env)
 
 mkdir -p day$day
 
-cp template/* day$day/
+cp -r template/* day$day/
 curl -s -o day$day/input.txt https://adventofcode.com/$year/day/$((10#$day))/input -H "cookie: session=$cookie"
 sed -i "s/{day_number}/$day/g" day$day/Makefile
 
