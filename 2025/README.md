@@ -1,6 +1,6 @@
 # Advent of Code 2025
 
-This year I wanted to challenge myself, so I've decided to try to solve every problem in system verilog. 
+This year I wanted to challenge myself, so I've decided to try to solve every problem in system verilog (and to write optimized code 💀). 
 
 ## Setup
 
