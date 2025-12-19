@@ -13,7 +13,7 @@ auto parse = [](ifstream& in) -> vector<string> {
     string line;
     while (getline(in, line)) {
         if (line.empty()) continue;
-        lines.emplace_back(move(line));
+        lines.push_back(line);
     }
     in.close();    
     return lines;
@@ -28,14 +28,14 @@ int main(int argc, char** argv) {
     tfp->open("wave.vcd");
 
     // Read input.txt
-    vector<pair<bool, uint32_t>> moves;
+    vector<string> lines;
     ifstream infile("../input.txt");
     if (!infile) {
         cerr << "Error: Cannot open input.txt" << endl;
         return 1;
     }
 
-    moves = parse(infile);
+    lines = parse(infile);
     
     
     // Simulation setup
@@ -59,18 +59,15 @@ int main(int argc, char** argv) {
     top->rst = 0;
 
     // Apply on posedge
-    for (const auto& m : moves) {
-        uint32_t remaining = m.second;
-        while (remaining > 0) {
-            top->valid = 1;
-            top->clk = 1;
-            top->eval();
-            tfp->dump(time++);
-            top->clk = 0;
-            top->eval();
-            tfp->dump(time++);
-            top->valid = 0;
-        }
+    for (const auto& l : lines) {
+        top->valid = 1;
+        top->clk = 1;
+        top->eval();
+        tfp->dump(time++);
+        top->clk = 0;
+        top->eval();
+        tfp->dump(time++);
+        top->valid = 0;
     }
 
     // Print result
